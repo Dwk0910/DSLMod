@@ -1,0 +1,16 @@
+modLoader = "javafml"
+loaderVersion = "[40,)"
+license = "MIT"
+
+[[mods]]
+modId = "dslmod"
+version = "0.0.1"
+displayName = "DSLMod"
+description = "An essential mod for the DCS. This mod cannot be modified."
+
+[[dependencies.dslmod]]
+modId = "forge"
+mandatory = true
+versionRange = "[40.3.0,)"
+ordering = "NONE"
+side = "BOTH"

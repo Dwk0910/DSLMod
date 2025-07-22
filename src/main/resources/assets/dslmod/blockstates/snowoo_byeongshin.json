@@ -1,0 +1,8 @@
+{
+	"variants": {
+		"facing=north": { "model": "dslmod:block/snowoo_byeongshin" },
+		"facing=south": { "model": "dslmod:block/snowoo_byeongshin", "y": 180 },
+		"facing=west":  { "model": "dslmod:block/snowoo_byeongshin", "y": 270 },
+		"facing=east":  { "model": "dslmod:block/snowoo_byeongshin", "y": 90  }
+	}
+}
