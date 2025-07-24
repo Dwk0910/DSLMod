@@ -1,13 +1,13 @@
 {
   "variants": {
-    "facing=north,part=left,color=white": { "model": "dslmod:block/beware_of_dog_left", "y": 0 },
-    "facing=east,part=left,color=white": { "model": "dslmod:block/beware_of_dog_left", "y": 90 },
-    "facing=south,part=left,color=white": { "model": "dslmod:block/beware_of_dog_left", "y": 180 },
-    "facing=west,part=left,color=white": { "model": "dslmod:block/beware_of_dog_left", "y": 270 },
+    "facing=north,part=left": { "model": "dslmod:block/beware_of_dog/beware_of_dog_left", "y": 0 },
+    "facing=east,part=left": { "model": "dslmod:block/beware_of_dog/beware_of_dog_left", "y": 90 },
+    "facing=south,part=left": { "model": "dslmod:block/beware_of_dog/beware_of_dog_left", "y": 180 },
+    "facing=west,part=left": { "model": "dslmod:block/beware_of_dog/beware_of_dog_left", "y": 270 },
 
-    "facing=north,part=right,color=white": { "model": "dslmod:block/beware_of_dog_right", "y": 0 },
-    "facing=east,part=right,color=white": { "model": "dslmod:block/beware_of_dog_right", "y": 90 },
-    "facing=south,part=right,color=white": { "model": "dslmod:block/beware_of_dog_right", "y": 180 },
-    "facing=west,part=right,color=white": { "model": "dslmod:block/beware_of_dog_right", "y": 270 }
+    "facing=north,part=right": { "model": "dslmod:block/beware_of_dog/beware_of_dog_right", "y": 0 },
+    "facing=east,part=right": { "model": "dslmod:block/beware_of_dog/beware_of_dog_right", "y": 90 },
+    "facing=south,part=right": { "model": "dslmod:block/beware_of_dog/beware_of_dog_right", "y": 180 },
+    "facing=west,part=right": { "model": "dslmod:block/beware_of_dog/beware_of_dog_right", "y": 270 }
   }
 }

@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "dslmod:block/gold_emerald/gold_emerald_block" }
+  }
+}

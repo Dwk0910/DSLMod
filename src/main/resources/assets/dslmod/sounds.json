@@ -1,0 +1,11 @@
+{
+  "drink": {
+    "category": "player",
+    "sounds": [
+      {
+        "name": "dslmod:drink",
+        "stream": false
+      }
+    ]
+  }
+}

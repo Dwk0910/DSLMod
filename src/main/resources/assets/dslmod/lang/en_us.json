@@ -1,6 +1,13 @@
 {
   "itemGroup.dslmod": "DSLMod",
   "item.dslmod.wannagohome": "집가고싶다",
+  "item.dslmod.gold_emerald": "금빛 에메랄드",
+  "item.dslmod.raw_gold_emerald": "금빛 에메랄드 원석",
+  "item.dslmod.coke": "코카콜라",
+
   "block.dslmod.snowoo_byeongshin": "정선우 병신",
-  "block.dslmod.beware_of_dog": "개조심 표지판"
+  "block.dslmod.beware_of_dog": "개조심 표지판",
+  "block.dslmod.gold_emerald_block": "금빛 에메랄드 블록",
+  "block.dslmod.gold_emerald_ore": "금빛 에메랄드 광석",
+  "block.dslmod.caffeine_block": "카페인 블록"
 }

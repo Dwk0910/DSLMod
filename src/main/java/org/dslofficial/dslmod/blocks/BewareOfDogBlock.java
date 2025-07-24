@@ -1,67 +1,44 @@
 package org.dslofficial.dslmod.blocks;
 
-import net.minecraft.client.Minecraft;
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 
 import net.minecraft.util.StringRepresentable;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.material.FluidState;
-import net.minecraft.world.level.material.Material;
 
-import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraftforge.eventbus.api.IEventBus;
 
-import net.minecraftforge.fml.common.Mod;
-
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
-
-import org.dslofficial.dslmod.DSLMod;
-import org.dslofficial.dslmod.Tabs;
-
-import org.dslofficial.dslmod.screens.BewareOfDogScreen;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, modid = DSLMod.MODID)
-public class BewareOfDog {
-    public static final DeferredRegister<Block> blockRegister = DeferredRegister.create(ForgeRegistries.BLOCKS, DSLMod.MODID);
-    public static final DeferredRegister<Item> itemRegister = DeferredRegister.create(ForgeRegistries.ITEMS, DSLMod.MODID);
-    public static final RegistryObject<Block> blockRegistry = blockRegister.register("beware_of_dog", () -> new BewareOfDogBlock(BlockBehaviour.Properties.of(Material.WOOD).noOcclusion()));
-    public static final RegistryObject<Item> itemRegistry = itemRegister.register("beware_of_dog", () -> new BlockItem(blockRegistry.get(), new Item.Properties().tab(Tabs.DSLTAB)));
-
-    public static void register(IEventBus eventBus) {
-        blockRegister.register(eventBus);
-        itemRegister.register(eventBus);
+public class BewareOfDogBlock extends Block {
+    // Property Enum Class Definition
+    public enum Part implements StringRepresentable {
+        LEFT, RIGHT;
+        @Override
+        public @NotNull String getSerializedName() {
+            return name().toLowerCase();
+        }
     }
-}
 
-class BewareOfDogBlock extends Block {
+    // Difinition of Property
+
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final EnumProperty<Part> PART = EnumProperty.create("part", Part.class);
-    public static final EnumProperty<Color> COLOR = EnumProperty.create("color", Color.class);
 
     // ** Initialize the block **
 
@@ -70,13 +47,14 @@ class BewareOfDogBlock extends Block {
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(FACING, Direction.NORTH)
                 .setValue(PART, Part.LEFT)
-                .setValue(COLOR, Color.WHITE)
         );
     }
 
+    // Customize
+
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(FACING, PART, COLOR);
+        builder.add(FACING, PART);
     }
 
     @Override
@@ -165,28 +143,5 @@ class BewareOfDogBlock extends Block {
 
         return super.onDestroyedByPlayer(state, level, pos, player, willHarvest, fluid);
     }
-
-    @SuppressWarnings("deprecation")
-    @Override
-    public @NotNull InteractionResult use(@NotNull BlockState pState, @NotNull Level pLevel, @NotNull BlockPos pPos, @NotNull Player pPlayer, @NotNull InteractionHand pHand, @NotNull BlockHitResult pHit) {
-        if (pLevel.isClientSide) Minecraft.getInstance().setScreen(new BewareOfDogScreen());
-        return InteractionResult.SUCCESS;
-    }
 }
 
-enum Part implements StringRepresentable {
-    LEFT, RIGHT;
-    @Override
-    public @NotNull String getSerializedName() {
-        return name().toLowerCase();
-    }
-}
-
-enum Color implements StringRepresentable {
-    GREEN, RED, WHITE, YELLOW;
-
-    @Override
-    public @NotNull String getSerializedName() {
-        return this.name().toLowerCase();
-    }
-}

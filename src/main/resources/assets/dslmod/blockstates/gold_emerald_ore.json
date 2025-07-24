@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "dslmod:block/gold_emerald/gold_emerald_ore", "y": 0 },
+    "facing=east": { "model": "dslmod:block/gold_emerald/gold_emerald_ore", "y": 90 },
+    "facing=south": { "model": "dslmod:block/gold_emerald/gold_emerald_ore", "y": 180 },
+    "facing=west": { "model": "dslmod:block/gold_emerald/gold_emerald_ore", "y": 270 }
+  }
+}
