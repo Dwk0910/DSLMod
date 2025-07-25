@@ -32,7 +32,7 @@ public class Items {
         // foods
         foodIcon = registerItem("coke", () -> new DrinkItem(
                 new Item.Properties().tab(Tabs.DSLTAB_FOODS),
-                List.of(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 2, true, true)),
+                List.of(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 2, false, false, true)),
                 2, 0.2f));
     }
 
