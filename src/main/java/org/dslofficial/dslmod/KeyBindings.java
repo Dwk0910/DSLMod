@@ -10,7 +10,7 @@ public class KeyBindings {
 
     public static void register() {
         spectatorShortcut = new KeyMapping(
-                "key." + DSLMod.MODID + ".spectator_shortcut",
+                "key.dslmod.spectator_shortcut",
                 InputConstants.Type.KEYSYM,
                 GLFW.GLFW_KEY_V,
                 "key.categories.dslmod"

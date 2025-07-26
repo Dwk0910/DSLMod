@@ -12,5 +12,6 @@
   "block.dslmod.gold_emerald_ore": "금빛 에메랄드 광석",
   "block.dslmod.caffeine_block": "카페인 블록",
 
-  "key.categories.dslmod": "DSLMod"
+  "key.categories.dslmod": "DSLMod",
+  "key.dslmod.spectator_shortcut": "크리에이티브/관전 즉시전환"
 }

@@ -1,9 +1,13 @@
 package org.dslofficial.dslmod.network;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.chat.TextComponent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.GameType;
 import net.minecraftforge.network.NetworkEvent;
+
+import org.dslofficial.dslmod.DSLMod;
 import org.dslofficial.dslmod.util.PrintHeader;
 
 import java.util.function.Supplier;
@@ -20,11 +24,12 @@ public class SpectatorShortcutPacket {
             if (player != null) {
                 if (player.isSpectator()) {
                     player.setGameMode(GameType.CREATIVE);
-                    player.displayClientMessage(PrintHeader.header("info", "게임모드가 크리에이티브로 변경되었습니다."), true);
-                }
-                else if (player.isCreative()) {
+                    player.displayClientMessage(new TextComponent("게임모드가 크리에이티브로 변경되었습니다.").withStyle(ChatFormatting.GRAY), true);
+                    DSLMod.logger.info(PrintHeader.header("info", "플레이어 %s의 게임모드가 크리에이티브로 변경되었습니다.".formatted(player.getDisplayName().getString())).getString());
+                } else if (player.isCreative()) {
                     player.setGameMode(GameType.SPECTATOR);
-                    player.displayClientMessage(PrintHeader.header("info", "게임모드가 로 변경되었습니다."), true);
+                    player.displayClientMessage(new TextComponent("게임모드가 관전으로 변경되었습니다.").withStyle(ChatFormatting.GRAY), true);
+                    DSLMod.logger.info(PrintHeader.header("info", "플레이어 %s의 게임모드가 관전으로 변경되었습니다.".formatted(player.getDisplayName().getString())).getString());
                 }
             }
         });
