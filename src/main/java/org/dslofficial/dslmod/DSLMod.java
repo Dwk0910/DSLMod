@@ -1,5 +1,7 @@
 package org.dslofficial.dslmod;
 
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -11,6 +13,8 @@ import org.dslofficial.dslmod.blocks.ModBlocks;
 import org.dslofficial.dslmod.items.Items;
 import org.dslofficial.dslmod.network.ServerPacket;
 import org.dslofficial.dslmod.sound.ModSounds;
+
+import org.dslofficial.dslmod.command.AllowPlaceBreak;
 
 @Mod("dslmod")
 public class DSLMod {
@@ -28,5 +32,12 @@ public class DSLMod {
         ModSounds.register(eventBus);
         KeyBindings.register();
         ServerPacket.register();
+
+        MinecraftForge.EVENT_BUS.addListener(DSLMod::onRegisterCommand);
+    }
+
+    public static void onRegisterCommand(RegisterCommandsEvent event) {
+        // command register
+        AllowPlaceBreak.register(event.getDispatcher());
     }
 }

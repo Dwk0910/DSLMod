@@ -1,4 +1,4 @@
-package org.dslofficial.dslmod.network;
+package org.dslofficial.dslmod.network.packets;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.FriendlyByteBuf;

@@ -5,6 +5,8 @@ import net.minecraftforge.network.NetworkDirection;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
 import org.dslofficial.dslmod.DSLMod;
+import org.dslofficial.dslmod.network.packets.NightvisionShortcutPacket;
+import org.dslofficial.dslmod.network.packets.SpectatorShortcutPacket;
 
 public class ServerPacket {
     public static SimpleChannel instance;
@@ -27,6 +29,12 @@ public class ServerPacket {
                 .encoder(SpectatorShortcutPacket::encoder)
                 .decoder(SpectatorShortcutPacket::new)
                 .consumer(SpectatorShortcutPacket::handle)
+                .add();
+
+        net.messageBuilder(NightvisionShortcutPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
+                .encoder(NightvisionShortcutPacket::encoder)
+                .decoder(NightvisionShortcutPacket::new)
+                .consumer(NightvisionShortcutPacket::handle)
                 .add();
     }
 }

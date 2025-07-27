@@ -13,5 +13,6 @@
   "block.dslmod.caffeine_block": "카페인 블록",
 
   "key.categories.dslmod": "DSLMod",
-  "key.dslmod.spectator_shortcut": "크리에이티브/관전 즉시전환"
+  "key.dslmod.spectator_shortcut": "크리에이티브/관전 전환 토글",
+  "key.dslmod.nightvision_shortcut": "야간투시 토글"
 }
